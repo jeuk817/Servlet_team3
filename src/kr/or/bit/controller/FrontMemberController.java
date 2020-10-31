@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.service.JoinFormService;
+import kr.or.bit.service.LoginService;
 import kr.or.bit.service.MainService;
 
 @WebServlet("*.do")
@@ -32,7 +33,8 @@ public class FrontMemberController extends HttpServlet {
 //	}
 
     private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
+    	request.setCharacterEncoding("UTF-8");
+    	response.setCharacterEncoding("UTF-8");
     	String requestURI = request.getRequestURI();
     	String contextPath = request.getContextPath();
     	String urlCommand = requestURI.substring(contextPath.length());
@@ -49,7 +51,8 @@ public class FrontMemberController extends HttpServlet {
     		action = new JoinFormService();
     		forward = action.execute(request, response);
     	} else if(urlCommand.equals("/Login.do")) {
-    		
+    		action = new LoginService();
+    		forward = action.execute(request, response);
     	}
     	
     	if(forward != null) {

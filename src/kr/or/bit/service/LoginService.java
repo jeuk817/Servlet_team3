@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 
-public class JoinFormService implements Action {
+public class LoginService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -18,10 +18,10 @@ public class JoinFormService implements Action {
 			forward.setPath("Main.do");
 		} else {
 			forward.setRedirect(false);
-			forward.setPath("/WEB-INF/views/JoinForm.jsp");
+			forward.setPath("/WEB-INF/views/Login.jsp");
 		}
 		
 		return forward;
 	}
-	
+
 }
