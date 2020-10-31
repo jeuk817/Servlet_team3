@@ -139,6 +139,7 @@ public class KoreaMemberDao {
 	public int insertKoreaMember(KoreaMember km) {
 		int resultRow = 0;
 		try {
+
 			pstmt = conn.prepareStatement(SQL_INSERT_MEMBER);
 			pstmt.setString(1, km.getId());
 			pstmt.setString(2, km.getPwd());

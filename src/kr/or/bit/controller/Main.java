@@ -8,11 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import kr.or.bit.action.Action;
+import kr.or.bit.action.ActionForward;
 
 /**
  * Servlet implementation class Main
  */
-@WebServlet("/Main")
+@WebServlet("*.do")
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -20,19 +22,37 @@ public class Main extends HttpServlet {
         super();
     }
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doprocess (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
     	response.setCharacterEncoding("UTF-8");
-    	this.doGet(request, response);
+    	String requestURI = request.getRequestURI();
+    	String contextPath = request.getContextPath();
+    	String url_Command = requestURI.substring(contextPath.length());
+
+    	Action action = null;
+    	ActionForward forward = null;
+
+    	if(url_Command.equals("/SignUP.do")) { // 회원가입
+    		action = new
+
+		if(forward != null) {
+			if(forward.isRedirect()) { //true
+				response.sendRedirect(forward.getPath());
+			}else {
+
+				RequestDispatcher dis  = request.getRequestDispatcher(forward.getPath());
+				dis.forward(request, response);
+			}
+		}
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("Ex02_JDBC_Main.jsp");
-        rd.forward(request, response);
+		doprocess(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		doprocess(request,response);
 	}
 
 }
