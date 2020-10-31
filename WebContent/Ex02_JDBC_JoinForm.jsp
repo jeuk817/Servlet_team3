@@ -62,7 +62,7 @@ CREATE TABLE koreaMember
 				<jsp:include page="/common/Left.jsp"></jsp:include>
 			</td>
 			<td style="width: 1000px">
-				<form action="SignUp" method="post" name="joinForm" id="joinForm">
+				<form action="SignUp.member" method="post" name="joinForm" id="joinForm">
 					<h3 style="text-align: center;">회원가입</h3>
 					<div>
 						<table
@@ -70,7 +70,7 @@ CREATE TABLE koreaMember
 							<tr>
 								<th>ID:</th>
 								<td><input type="text" name="id" id="id" placeholder="4~20자리의 영문 및 숫자"><span id="spid"></span></td>								
-								<td><button id="cid" name="cid">중복확인</button><span id="msg"></span></td>
+								
 							</tr>
 							<tr>
 								<th>PWD:</th>
@@ -110,10 +110,14 @@ CREATE TABLE koreaMember
 		
 			<td colspan="2">
 				<jsp:include page="/common/Bottom.jsp"></jsp:include>
+				
 			</td>
+			
 				
 		</tr>
+		
 	</table>
+	<td><button id="cid" name="cid">중복확인</button><span id="msg"></span></td>
 </body>
 <script type="text/javascript">
 
@@ -124,20 +128,21 @@ $(function(){
 		//비동기 함수 
 		$.ajax(
 				{
-					url:"Join",
+					url:"Join.member",
 					type:"post",
-					dataType:"text",
+					dataType:"html",
 					data:"id=" + data,
-					success:function(value){
-						console.log(value);
-						var result = value;
+					success:function(responsedata){
+						console.log(">"+responsedata+"<");
+						var result = responsedata;
 						if(data==""){
 							$('#msg').html("<p style='color:red;'>공백은 사용불가</p>");
 					    	$('#id').focus();
-						}else if(value=='ok'){
+						}else if(responsedata == "true"){
 							$('#msg').html("<p style='color:green;'>사용가능</p>");
 					    	$('#id').focus();
 						}else{
+							console.log(result)
 							$('#msg').html("<p style='color:red;'>사용불가</p>");
 					    	$('#id').focus();
 						}

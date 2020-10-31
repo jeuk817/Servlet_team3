@@ -79,9 +79,7 @@ td {
 					rowcount = rs.getInt(1); //조회건수
 				}
 			 %>
-			 <%
-			 	List
-			 %>
+		
 			 
 				<table style="width: 400px;height: 100px;margin-left: auto;margin-right: auto">
 							<tr><th colspan="4">회원리스트</th></tr>

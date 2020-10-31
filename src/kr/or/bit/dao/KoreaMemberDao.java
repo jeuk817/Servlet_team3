@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.or.bit.dto.KoreaMember;
+import kr.or.bit.utils.ConnectionHelper;
 import kr.or.bit.utils.Singleton_Helper;
 
 /*
@@ -192,6 +193,45 @@ public class KoreaMemberDao {
 			Singleton_Helper.close(pstmt);
 		}
 		return resultRow;
+	}
+	//id체크
+	public String isCheckById(String id) {
+		Connection conn =null;//추가
+		String ismemoid= null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+				conn= ConnectionHelper.getConnection("oracle");//추가
+				String sql = "select id from koreamember where id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					//do {
+						//String id = rs.getString("id")
+						ismemoid = "false";
+						
+					//}while(rs.next());
+				}else {
+						ismemoid = "true";
+				}
+			
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			//DB_Close.close(rs);
+			//DB_Close.close(pstmt);
+			try {
+				conn.close();//반환하기
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			} 
+		}
+		//System.out.println("ismemoid : " + ismemoid);
+		return ismemoid;
 	}
 		
 }
