@@ -28,12 +28,12 @@ td {
 		style="width: 900px; height: 500px; margin-left: auto; margin-right: auto;">
 		<tr>
 			<td colspan="2">
-				<jsp:include page="/common/Top.jsp"></jsp:include>
+				<jsp:include page="./common/Top.jsp"></jsp:include>
 			</td>
 		</tr>
 		<tr>
 			<td style="width: 200px">
-				<jsp:include page="/common/Left.jsp"></jsp:include>
+				<jsp:include page="./common/Left.jsp"></jsp:include>
 			</td>
 			<td style="width: 700px">
 				<% 
@@ -44,7 +44,7 @@ td {
 					<c:when test="${ userid != null }">
 						<b>${ userid } 회원님 방가방가^^</b><br>
 						<c:if test="${ userid == 'admin' }">
-							<a href='MemberList'>회원관리</a>
+							<a href='MemberList.do'>회원관리</a>
 						</c:if>
 					</c:when>
 					<c:otherwise>
@@ -54,7 +54,7 @@ td {
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2"><jsp:include page="/common/Bottom.jsp"></jsp:include></td>
+			<td colspan="2"><jsp:include page="./common/Bottom.jsp"></jsp:include></td>
 		</tr>
 	</table>
 </body>

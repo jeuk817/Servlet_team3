@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +30,11 @@ public class Login extends HttpServlet {
     public Login() {
         super();
     }
+    
+	public void init(ServletConfig config) throws ServletException {
+	// TODO Auto-generated method stub
+		System.out.println("Login init!!!!!!!!!!!!!!!!!!!");
+	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Login service");
