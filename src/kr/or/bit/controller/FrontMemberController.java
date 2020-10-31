@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.JoinFormService;
 import kr.or.bit.service.MainService;
 
 @WebServlet("*.do")
@@ -34,16 +35,21 @@ public class FrontMemberController extends HttpServlet {
     	
     	String requestURI = request.getRequestURI();
     	String contextPath = request.getContextPath();
-    	String url_Command = requestURI.substring(contextPath.length());
+    	String urlCommand = requestURI.substring(contextPath.length());
     	String method = request.getMethod();
-    	System.out.println(method + " " + url_Command);
+    	System.out.println(method + " " + urlCommand);
 	
     	Action action=null;
     	ActionForward forward=null;
     	
-    	if(url_Command.equals("/Main.do")) { // Get Main page
+    	if(urlCommand.equals("/Main.do")) { // Get Main page
     		action = new MainService();
     		forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/JoinForm.do")) {
+    		action = new JoinFormService();
+    		forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/Login.do")) {
+    		
     	}
     	
     	if(forward != null) {

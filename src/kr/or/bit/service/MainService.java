@@ -12,8 +12,8 @@ public class MainService implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
 		
-		forward.setPath("/WEB-INF/views/Main.jsp");
 		forward.setRedirect(false);
+		forward.setPath("/WEB-INF/views/Main.jsp");
 		
 		return forward;
 	}
