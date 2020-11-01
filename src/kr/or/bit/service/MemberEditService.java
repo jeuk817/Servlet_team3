@@ -28,8 +28,7 @@ public class MemberEditService implements Action {
 	        dto.setGender(request.getParameter("gender"));
 	        dto.setEmail(request.getParameter("email"));
 	        
-	        KoreaMemberDao koreaMemberDao = new KoreaMemberDao();
-	        koreaMemberDao.updateKoreaMember(dto);
+	        KoreaMemberDao.updateKoreaMember(dto);
 	        
 	        forward.setRedirect(true);
 	        forward.setPath("MemberList.do");

@@ -13,8 +13,7 @@ public class IdentificationService_Ajax implements ActionAjax {
 	@Override
 	public ActionDataAjax execute(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
-		KoreaMemberDao dao = new KoreaMemberDao();
-		KoreaMember km = dao.getKoreaMember(id);
+		KoreaMember km = KoreaMemberDao.getKoreaMember(id);
 		
 		ActionDataAjax dataAjax = new ActionDataAjax();
 		dataAjax.setContentType("text/plain");

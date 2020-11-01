@@ -22,8 +22,7 @@ public class MemberDetailService implements Action {
 			forward.setPath("Login.do");
 		} else {
 			String id = request.getParameter("id");
-			KoreaMemberDao dao = new KoreaMemberDao();
-	        KoreaMember km = dao.getKoreaMember(id);
+	        KoreaMember km = KoreaMemberDao.getKoreaMember(id);
 	        request.setAttribute("user", km);
 	        
 	        forward.setRedirect(false);

@@ -23,8 +23,7 @@ public class MemberListService implements Action {
 			forward.setRedirect(true);
 			forward.setPath("Login.do");
 		} else {
-			KoreaMemberDao dao = new KoreaMemberDao();
-			List<KoreaMember> memberList = dao.getKoreaMemberList();
+			List<KoreaMember> memberList = KoreaMemberDao.getKoreaMemberList();
 			request.setAttribute("memberList", memberList);
 			
 			forward.setRedirect(false);

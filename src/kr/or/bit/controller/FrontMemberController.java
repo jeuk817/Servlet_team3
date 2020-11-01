@@ -3,7 +3,6 @@ package kr.or.bit.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,14 +20,6 @@ public class FrontMemberController extends HttpServlet {
     public FrontMemberController() {
         super();
     }
-
-//	public void init(ServletConfig config) throws ServletException {
-//		// TODO Auto-generated method stub
-//	}
-
-//	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//	}
 
     private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("UTF-8");

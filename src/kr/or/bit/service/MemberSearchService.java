@@ -24,8 +24,7 @@ public class MemberSearchService implements Action {
 			forward.setPath("Login.do");
 		} else {
 			String searchName = request.getParameter("searchName").trim();
-			KoreaMemberDao dao = new KoreaMemberDao();
-			List<KoreaMember> memberList = dao.getKoreaMemberListByName(searchName);
+			List<KoreaMember> memberList = KoreaMemberDao.getKoreaMemberListByName(searchName);
 			request.setAttribute("memberList", memberList);
 			
 			forward.setRedirect(false);

@@ -22,9 +22,8 @@ public class SignUpService implements Action {
 		String email = request.getParameter("email");
 		String ip = request.getRemoteAddr();
 		
-		KoreaMemberDao dao = new KoreaMemberDao();
 		KoreaMember km = new KoreaMember(id, pwd, name, age, gender, email, ip);
-		int resultRow = dao.insertKoreaMember(km);
+		KoreaMemberDao.insertKoreaMember(km);
 		
 		forward.setRedirect(true);
 		forward.setPath("Main.do");

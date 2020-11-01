@@ -21,8 +21,7 @@ public class MemberDeleteService implements Action{
 			forward.setPath("Login.do");
 		} else {
 			String id = request.getParameter("id");
-			KoreaMemberDao koreaMemberDao = new KoreaMemberDao();
-	        koreaMemberDao.deleteKoreaMember(id);
+			KoreaMemberDao.deleteKoreaMember(id);
 	        
 	        forward.setRedirect(true);
 	        forward.setPath("MemberList.do");

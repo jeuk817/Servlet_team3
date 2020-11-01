@@ -19,8 +19,7 @@ public class LoginService_Ajax implements ActionAjax {
 		JsonObject body = (JsonObject)request.getAttribute("body");
 		String id = body.get("id").getAsString();
 		String pwd = body.get("pwd").getAsString();
-		KoreaMemberDao kmDao = new KoreaMemberDao();
-		KoreaMember km = kmDao.getKoreaMember(id);
+		KoreaMember km = KoreaMemberDao.getKoreaMember(id);
 		
 		ActionDataAjax dataAjax = new ActionDataAjax();
 		dataAjax.setContentType("text/plain");

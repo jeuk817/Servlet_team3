@@ -33,7 +33,7 @@ IP	VARCHAR2(50 BYTE)	Yes		7
 
 */
 public class KoreaMemberDao {
-	private ConnectionPoolHelper instance = ConnectionPoolHelper.getInstance();
+	private static ConnectionPoolHelper instance = ConnectionPoolHelper.getInstance();
 	private static final String SQL_SELECT_ALL = "SELECT ID, PWD, NAME, AGE, GENDER, EMAIL, IP "
 												+ "FROM KOREAMEMBER";
 	private static final String SQL_SELECT_MEMBERS_BY_NAME = "SELECT ID, PWD, NAME, AGE, GENDER, EMAIL, IP "
@@ -46,12 +46,10 @@ public class KoreaMemberDao {
 	private static final String SQL_DELETE_MEMBER = "DELETE FROM KOREAMEMBER WHERE ID=?";
 	
 	
-	public KoreaMemberDao() {
-//		conn = Singleton_Helper.getConnection("oracle");
-	}
+	public KoreaMemberDao() {}
 	
 	//전체조회
-	public List<KoreaMember> getKoreaMemberList() {
+	public static List<KoreaMember> getKoreaMemberList() {
 		List<KoreaMember> memberlist =  new ArrayList<KoreaMember>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -74,7 +72,7 @@ public class KoreaMemberDao {
 	}
 	
 	// LIKE 이름으로 멤버리스트 조회
-	public List<KoreaMember> getKoreaMemberListByName(String name) {
+	public static List<KoreaMember> getKoreaMemberListByName(String name) {
 		List<KoreaMember> memberlist =  new ArrayList<KoreaMember>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -98,7 +96,7 @@ public class KoreaMemberDao {
 	}
 	
 	// id로 멤버 조회
-	public KoreaMember getKoreaMember(String _id) {
+	public static KoreaMember getKoreaMember(String _id) {
 		KoreaMember km = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -121,7 +119,7 @@ public class KoreaMemberDao {
 	
 	
 	// 멤버추가
-	public int insertKoreaMember(KoreaMember km) {
+	public static int insertKoreaMember(KoreaMember km) {
 		int resultRow = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -147,7 +145,7 @@ public class KoreaMemberDao {
 	}
 	
 	// 멤버수정
-	public int updateKoreaMember(KoreaMember km) {
+	public static int updateKoreaMember(KoreaMember km) {
 		int resultRow = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -169,7 +167,7 @@ public class KoreaMemberDao {
 	}
 	
 	// 멤버삭제
-	public int deleteKoreaMember(String id) {
+	public static int deleteKoreaMember(String id) {
 		int resultRow = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
