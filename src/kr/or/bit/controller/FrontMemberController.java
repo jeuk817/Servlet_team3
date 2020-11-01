@@ -14,6 +14,7 @@ import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.service.JoinFormService;
 import kr.or.bit.service.LoginService;
+import kr.or.bit.service.LogoutService;
 import kr.or.bit.service.MainService;
 
 @WebServlet("*.do")
@@ -53,6 +54,9 @@ public class FrontMemberController extends HttpServlet {
     	} else if(urlCommand.equals("/Login.do")) {
     		action = new LoginService();
     		forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/Logout.do")) {
+	    	action = new LogoutService();
+	    	forward = action.execute(request, response);
     	}
     	
     	if(forward != null) {
