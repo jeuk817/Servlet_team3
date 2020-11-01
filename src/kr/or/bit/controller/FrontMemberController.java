@@ -84,6 +84,9 @@ public class FrontMemberController extends HttpServlet {
     			RequestDispatcher dis  = request.getRequestDispatcher(forward.getPath());
     			dis.forward(request, response);
     		}
+    	} else {
+    		RequestDispatcher dis  = request.getRequestDispatcher("/WEB-INF/views/Error404.jsp");
+    		dis.forward(request, response);
     	}
     	
     }
