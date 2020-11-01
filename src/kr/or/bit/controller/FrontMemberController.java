@@ -34,7 +34,7 @@ public class FrontMemberController extends HttpServlet {
 
     private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	request.setCharacterEncoding("UTF-8");
-    	response.setCharacterEncoding("UTF-8");
+    	response.setContentType("text/html;charset=UTF-8");
     	String requestURI = request.getRequestURI();
     	String contextPath = request.getContextPath();
     	String urlCommand = requestURI.substring(contextPath.length());
