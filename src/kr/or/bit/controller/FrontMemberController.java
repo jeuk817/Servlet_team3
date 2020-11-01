@@ -19,6 +19,7 @@ import kr.or.bit.service.MainService;
 import kr.or.bit.service.MemberDeleteService;
 import kr.or.bit.service.MemberListService;
 import kr.or.bit.service.MemberSearchService;
+import kr.or.bit.service.SignUpService;
 
 @WebServlet("*.do")
 public class FrontMemberController extends HttpServlet {
@@ -68,6 +69,9 @@ public class FrontMemberController extends HttpServlet {
 	    	forward = action.execute(request, response);
     	} else if(urlCommand.equals("/MemberDelete.do")) {
 	    	action = new MemberDeleteService();
+	    	forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/SignUp.do")) {
+	    	action = new SignUpService();
 	    	forward = action.execute(request, response);
     	}
     	
