@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 
 import kr.or.bit.action.ActionAjax;
 import kr.or.bit.action.ActionDataAjax;
+import kr.or.bit.ajaxService.IdentificationService_Ajax;
 import kr.or.bit.ajaxService.LoginService_Ajax;
 import kr.or.bit.middleware.Middlewares;
 import kr.or.bit.utils.MyUtils;
@@ -51,7 +52,21 @@ public class AjaxController extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ActionAjax action = null;
+		ActionDataAjax dataAjax = null;
+		
+		if(request.getAttribute("urlCommand").equals("/Identification.ajax")) {
+			action = new IdentificationService_Ajax();
+			dataAjax = action.execute(request, response);
+		}
+		
+		PrintWriter out = response.getWriter();
+		if(dataAjax != null) {
+			response.setContentType(dataAjax.getContentType());
+			out.print(dataAjax.getData());
+		}
+		
+		out.flush();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -124,8 +124,8 @@ $(function(){
 		//비동기 함수 
 		$.ajax(
 				{
-					url:"Join",
-					type:"post",
+					url:"Identification.ajax",
+					type:"get",
 					dataType:"text",
 					data:"id=" + data,
 					success:function(value){
