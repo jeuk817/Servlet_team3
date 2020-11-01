@@ -17,6 +17,7 @@ import kr.or.bit.service.LoginService;
 import kr.or.bit.service.LogoutService;
 import kr.or.bit.service.MainService;
 import kr.or.bit.service.MemberListService;
+import kr.or.bit.service.MemberSearchService;
 
 @WebServlet("*.do")
 public class FrontMemberController extends HttpServlet {
@@ -60,6 +61,9 @@ public class FrontMemberController extends HttpServlet {
 	    	forward = action.execute(request, response);
     	} else if(urlCommand.equals("/MemberList.do")) {
 	    	action = new MemberListService();
+	    	forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/MemberSearch.do")) {
+	    	action = new MemberSearchService();
 	    	forward = action.execute(request, response);
     	}
     	

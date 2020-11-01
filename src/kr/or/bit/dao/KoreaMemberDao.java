@@ -81,7 +81,6 @@ public class KoreaMemberDao {
 	
 	// LIKE 이름으로 멤버리스트 조회
 	public List<KoreaMember> getKoreaMemberListByName(String name) {
-		System.out.println("getKoreaMemberListByName");
 		List<KoreaMember> memberlist =  new ArrayList<KoreaMember>();
 		try {
 			pstmt = conn.prepareStatement(SQL_SELECT_MEMBERS_BY_NAME);

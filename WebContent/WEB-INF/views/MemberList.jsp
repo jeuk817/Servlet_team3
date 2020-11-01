@@ -57,9 +57,9 @@ td {
 	            </c:forEach>
 			</table>
 			<p>회원조회</p>
-            <form id="searchForm" action="Ex03_MemberSearch.jsp" method="post">
+            <form id="searchForm" action="MemberSearch.do" method="get">
 				<div>                                         
-				     <input type="search" name="search" placeholder="회원명으로 찾기">
+				     <input type="search" name="searchName" placeholder="회원명으로 찾기">
 				     <button type="submit"  formmethod="post" name="search">검색</button>
 				</div>
            	</form>
