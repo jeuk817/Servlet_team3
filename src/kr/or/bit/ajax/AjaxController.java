@@ -58,7 +58,7 @@ public class AjaxController extends HttpServlet {
 		ActionAjax action = null;
 		ActionDataAjax dataAjax = null;
 		
-		if(request.getAttribute("urlCommand").equals("Login.ajax")) {
+		if(request.getAttribute("urlCommand").equals("/Login.ajax")) {
 			action = new LoginService_Ajax();
 			dataAjax = action.execute(request, response);
 		}

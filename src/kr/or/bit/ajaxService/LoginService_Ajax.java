@@ -16,7 +16,6 @@ public class LoginService_Ajax implements ActionAjax {
 
 	@Override
 	public ActionDataAjax execute(HttpServletRequest request, HttpServletResponse response) {
-		
 		JsonObject body = (JsonObject)request.getAttribute("body");
 		String id = body.get("id").getAsString();
 		String pwd = body.get("pwd").getAsString();
@@ -25,19 +24,16 @@ public class LoginService_Ajax implements ActionAjax {
 		
 		ActionDataAjax dataAjax = new ActionDataAjax();
 		dataAjax.setContentType("text/plain");
-		if(km == null) {
-			dataAjax.setData("not found");
+		if(km == null || !pwd.equals(km.getPwd())) {
+			dataAjax.setData("fail");
 		} else {
-			if(pwd.equals(km.getPwd())) {
-				HttpSession session = request.getSession();
-	            session.setAttribute("userId", km.getId());
-	            session.setMaxInactiveInterval(15 * 60);
-	            
-	            dataAjax.setData("success");
-			} else {
-				dataAjax.setData("incorrect");
-			}
+			HttpSession session = request.getSession();
+            session.setAttribute("userId", km.getId());
+            session.setMaxInactiveInterval(15 * 60);
+            
+            dataAjax.setData("success");
 		}
+		
 		return dataAjax;
 	}
 	

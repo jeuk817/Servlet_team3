@@ -63,11 +63,11 @@ td {
 <script>
 document.getElementById('loginBtn').addEventListener('click', async e=>{
 	console.log('click')
-	const id = document.getElementById('id').value;
-	const pwd = document.getElementById('pwd').value;
-	const jsonData = { id, pwd };
+	const id = document.getElementById('id');
+	const pwd = document.getElementById('pwd');
+	const jsonData = { id: id.value, pwd: pwd.value };
 	const data = JSON.stringify(jsonData);
-	const response = await fetch('Login', {
+	const response = await fetch('Login.ajax', {
 	    method: 'POST',
 	    headers: {
 	      'Content-Type': 'application/json'
@@ -78,11 +78,13 @@ document.getElementById('loginBtn').addEventListener('click', async e=>{
 	  });
 	const test = await response.text();
 	if(test==='success'){
-		location.href = 'Main';
+		location.href = 'Main.do';
 	} else {
-		// not found : 회원정보 없는거 -> 경고창
-		// 가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.
+		console.log('fail')
+		alert('가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.')
+		id.value = ""
+		pwd.value = ""
 	}
-})
+});
 </script>
 </html>
