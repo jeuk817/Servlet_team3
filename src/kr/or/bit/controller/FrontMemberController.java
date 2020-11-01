@@ -17,6 +17,7 @@ import kr.or.bit.service.LoginService;
 import kr.or.bit.service.LogoutService;
 import kr.or.bit.service.MainService;
 import kr.or.bit.service.MemberDeleteService;
+import kr.or.bit.service.MemberDetailService;
 import kr.or.bit.service.MemberListService;
 import kr.or.bit.service.MemberSearchService;
 import kr.or.bit.service.SignUpService;
@@ -72,6 +73,9 @@ public class FrontMemberController extends HttpServlet {
 	    	forward = action.execute(request, response);
     	} else if(urlCommand.equals("/SignUp.do")) {
 	    	action = new SignUpService();
+	    	forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/MemberDetail.do")) {
+	    	action = new MemberDetailService();
 	    	forward = action.execute(request, response);
     	}
     	
