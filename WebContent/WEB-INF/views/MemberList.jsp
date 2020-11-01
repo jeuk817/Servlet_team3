@@ -1,7 +1,3 @@
-<%@page import="kr.or.bit.utils.Singleton_Helper"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
@@ -51,7 +47,7 @@ td {
 	            <c:forEach var="user" items="${ list }" varStatus="index">
 	                 <c:if test="${user != null}">
 	                    <tr>                       
-	                        <td width="100px"><a href='Ex03_MemberDetail.jsp?id=${user.id}'><h4>${user.id}</h4></a></td>                                                       
+	                        <td width="100px"><a href='Ex03_MemberDetail.jsp?id=${user.id}'>${user.id}</a></td>                                                       
 	                     <td width="100px">     <small>${user.ip}</small>    </td>                    
 	                       
 	                        <td><a href='Ex03_MemberEdit.jsp?id=${user.id}'><span>수정</span></a> </td> 
@@ -70,5 +66,6 @@ td {
 			<tr>
 			   <td colspan="2"><jsp:include page="./common/Bottom.jsp"></jsp:include></td>
 		</tr>
+		</table>
 </body>
 </html>
