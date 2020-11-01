@@ -50,7 +50,7 @@ td {
 	                        <td width="100px"><a href='MemberDetail.do?id=${user.id}'>${user.id}</a></td>                                                       
 	                     <td width="100px">     <small>${user.ip}</small>    </td>                    
 	                       
-	                        <td><a href='MemberEdit.do?id=${user.id}'><span>수정</span></a> </td> 
+	                        <td><a href='MemberEditForm.do?id=${user.id}'><span>수정</span></a> </td> 
 	                        <td><a href='MemberDelete.do?id=${user.id}'><span>삭제</span></a> </td> 
 	                    </tr>
 	                 </c:if> 

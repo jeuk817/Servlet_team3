@@ -12,15 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.service.JoinFormService;
-import kr.or.bit.service.LoginService;
-import kr.or.bit.service.LogoutService;
-import kr.or.bit.service.MainService;
-import kr.or.bit.service.MemberDeleteService;
-import kr.or.bit.service.MemberDetailService;
-import kr.or.bit.service.MemberListService;
-import kr.or.bit.service.MemberSearchService;
-import kr.or.bit.service.SignUpService;
+import kr.or.bit.service.*;
 
 @WebServlet("*.do")
 public class FrontMemberController extends HttpServlet {
@@ -76,6 +68,9 @@ public class FrontMemberController extends HttpServlet {
 	    	forward = action.execute(request, response);
     	} else if(urlCommand.equals("/MemberDetail.do")) {
 	    	action = new MemberDetailService();
+	    	forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/MemberEditForm.do")) {
+	    	action = new MemberEditFormService();
 	    	forward = action.execute(request, response);
     	}
     	
