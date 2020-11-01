@@ -16,6 +16,7 @@ import kr.or.bit.service.JoinFormService;
 import kr.or.bit.service.LoginService;
 import kr.or.bit.service.LogoutService;
 import kr.or.bit.service.MainService;
+import kr.or.bit.service.MemberDeleteService;
 import kr.or.bit.service.MemberListService;
 import kr.or.bit.service.MemberSearchService;
 
@@ -64,6 +65,9 @@ public class FrontMemberController extends HttpServlet {
 	    	forward = action.execute(request, response);
     	} else if(urlCommand.equals("/MemberSearch.do")) {
 	    	action = new MemberSearchService();
+	    	forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/MemberDelete.do")) {
+	    	action = new MemberDeleteService();
 	    	forward = action.execute(request, response);
     	}
     	

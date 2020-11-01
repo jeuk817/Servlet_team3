@@ -47,11 +47,11 @@ td {
 	            <c:forEach var="user" items="${ list }" varStatus="index">
 	                 <c:if test="${user != null}">
 	                    <tr>                       
-	                        <td width="100px"><a href='Ex03_MemberDetail.jsp?id=${user.id}'>${user.id}</a></td>                                                       
+	                        <td width="100px"><a href='MemberDetail.do?id=${user.id}'>${user.id}</a></td>                                                       
 	                     <td width="100px">     <small>${user.ip}</small>    </td>                    
 	                       
-	                        <td><a href='Ex03_MemberEdit.jsp?id=${user.id}'><span>수정</span></a> </td> 
-	                        <td><a href='Ex03_MemberDelete.jsp?id=${user.id}'><span>삭제</span></a> </td> 
+	                        <td><a href='MemberEdit.do?id=${user.id}'><span>수정</span></a> </td> 
+	                        <td><a href='MemberDelete.do?id=${user.id}'><span>삭제</span></a> </td> 
 	                    </tr>
 	                 </c:if> 
 	            </c:forEach>
