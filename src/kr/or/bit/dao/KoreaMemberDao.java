@@ -60,14 +60,7 @@ public class KoreaMemberDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				KoreaMember km = new KoreaMember();
-				km.setId(rs.getString("ID"));
-				km.setPwd(rs.getString("PWD"));
-				km.setName(rs.getString("NAME"));
-				km.setAge(rs.getInt("AGE"));
-				km.setGender(rs.getString("GENDER"));
-				km.setEmail(rs.getString("EMAIL"));
-				km.setIp(rs.getString("IP"));
+				KoreaMember km = KoreaMemberDao.setKoreMember(rs);
 				memberlist.add(km);
 			}
 		} catch(Exception e) {
@@ -88,14 +81,7 @@ public class KoreaMemberDao {
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				KoreaMember km = new KoreaMember();
-				km.setId(rs.getString("ID"));
-				km.setPwd(rs.getString("PWD"));
-				km.setName(rs.getString("NAME"));
-				km.setAge(rs.getInt("AGE"));
-				km.setGender(rs.getString("GENDER"));
-				km.setEmail(rs.getString("EMAIL"));
-				km.setIp(rs.getString("IP"));
+				KoreaMember km = KoreaMemberDao.setKoreMember(rs);
 				memberlist.add(km);
 			}
 		} catch(Exception e) {
@@ -109,20 +95,13 @@ public class KoreaMemberDao {
 	
 	// id로 멤버 조회
 	public KoreaMember getKoreaMember(String _id) {
-		KoreaMember member = null;
+		KoreaMember km = null;
         try {
         	pstmt = conn.prepareStatement(SQL_SELECT_MEMBER_BY_ID);
         	pstmt.setString(1, _id);
             rs = pstmt.executeQuery();
             while (rs.next()) {
-                String id = rs.getString("ID");
-                String pwd = rs.getString("PWD");
-                String name = rs.getString("NAME");
-                int age = rs.getInt("AGE");
-                String gender = rs.getString("GENDER");
-                String email = rs.getString("EMAIL");
-                String ip = rs.getString("IP");
-                member = new KoreaMember(id, pwd, name, age, gender, email, ip);
+            	km = KoreaMemberDao.setKoreMember(rs);
             }
         } catch (SQLException e) {
         	System.out.println(e.getMessage());
@@ -130,7 +109,7 @@ public class KoreaMemberDao {
 			Singleton_Helper.close(rs);
 			Singleton_Helper.close(pstmt);
 		}
-        return member;
+        return km;
     }
 	
 	
@@ -191,6 +170,19 @@ public class KoreaMemberDao {
 			Singleton_Helper.close(pstmt);
 		}
 		return resultRow;
+	}
+	
+	private static KoreaMember setKoreMember(ResultSet rs) throws SQLException {
+		String id = rs.getString("ID").trim();
+        String pwd = rs.getString("PWD").trim();
+        String name = rs.getString("NAME").trim();
+        int age = rs.getInt("AGE");
+        String gender = rs.getString("GENDER").trim();
+        String email = rs.getString("EMAIL").trim();
+        String ip = rs.getString("IP").trim();
+        
+        KoreaMember km = new KoreaMember(id, pwd, name, age, gender, email, ip);
+		return km;
 	}
 		
 }

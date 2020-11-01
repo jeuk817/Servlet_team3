@@ -72,6 +72,9 @@ public class FrontMemberController extends HttpServlet {
     	} else if(urlCommand.equals("/MemberEditForm.do")) {
 	    	action = new MemberEditFormService();
 	    	forward = action.execute(request, response);
+    	} else if(urlCommand.equals("/MemberEdit.do")) {
+	    	action = new MemberEditService();
+	    	forward = action.execute(request, response);
     	}
     	
     	if(forward != null) {

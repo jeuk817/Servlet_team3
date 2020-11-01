@@ -1,3 +1,4 @@
+<%@page import="kr.or.bit.dto.KoreaMember"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -47,7 +48,8 @@ td {
 						</tr>
 						<tr>
 							<td>비번</td>
-							<td>${user.pwd}</td>							</tr>
+							<td>${user.pwd}</td>
+						</tr>
 						<tr>
 							<td>이름</td>
 							<td>
@@ -61,10 +63,10 @@ td {
 							</td>
 						</tr>
 						<tr>
-							<td>성별</td>
+							<td>성별 </td>
 							<td>
 								<c:choose>
-									<c:when test="${ user.gender = '남' }">
+									<c:when test="${ user.gender == '남' }">
 										<input type="radio" name="gender" id="gender" value="남" checked>
 										남자
 										<input type="radio" name="gender" id="gender" value="여">
