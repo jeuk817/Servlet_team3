@@ -55,7 +55,8 @@ td {
 	                     <td width="100px">     <small>${user.ip}</small>    </td>                    
 	                       
 	                        <td><a href='Ex03_MemberEdit.jsp?id=${user.id}'><span>수정</span></a> </td> 
-	                        <td><a href='Ex03_MemberDelete.jsp?id=${user.id}'><span>삭제</span></a> </td> 
+	                        <!-- <td><a href='Ex03_MemberDelete.jsp?id=${user.id}'><span>삭제</span></a> </td>--> 
+	                        <td><a href='DeleteMember?id=${user.id}'><span>삭제</span></a> </td> 
 	                    </tr>
 	                 </c:if> 
 	            </c:forEach>
