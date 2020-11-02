@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.KoreaMemberDao;
+import kr.or.bit.service.MemberWriteAction;
 import kr.or.bit.dao.KoreaMemberDao;
 
 
@@ -36,6 +37,7 @@ public class RegisterFrontController extends HttpServlet {
     }
 	
     private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("controll.do 접속");
 		//1. 요청 받기
     	//String command  = request.getParameter("cmd")
     	//Url 방식은 cmd parameter 없어요
@@ -66,23 +68,17 @@ public class RegisterFrontController extends HttpServlet {
     	///////////////////////////////////////////////////
     	//2. 요청 판단 처리 (화면 , 처리)
     	String viewpage="";
-    	if(url_Command.equals("DeleteMember.do")) { //계정 삭제
-  
-    		 HttpSession httpSession = request.getSession();
-    		 System.out.println(httpSession+"1st");
-    	        //삭제할 id의 정보를 dao로 보내서 해당 데이터를 가져옴
-    	        String id = request.getParameter("id");
-    	        KoreaMemberDao koreaMemberDao = new KoreaMemberDao();
-    	        int resultRow = koreaMemberDao.deleteKoreaMember(id);
-    	        
-    	        PrintWriter out = response.getWriter();
-    	        forward = new ActionForward();
-        		forward.setRedirect(false);
-    	        response.setContentType("text/plain");
-//    	        response.sendRedirect("MemberList");
-    	        
-    	       
-        		forward.setPath("MemberList");
+    	System.out.println("처리전");
+    	
+    	if(url_Command.equals("/Controller.do")) { //계정 삭제   		 
+    		 forward = new ActionForward();
+     		 forward.setRedirect(false);
+     		 forward.setPath("/DeleteMember");
+     		
+    	}else if(url_Command.equals("/List.do")) {
+    		forward = new ActionForward();
+    		forward.setRedirect(false);
+    		forward.setPath("/MemberList");
     	}
     	
     	

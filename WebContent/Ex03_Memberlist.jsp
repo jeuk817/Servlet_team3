@@ -60,7 +60,8 @@ td {
 	                     <td width="100px">     <small>${user.ip}</small>    </td>                    
 	                       
 	                        <td><a href='Ex03_MemberEdit.jsp?id=${user.id}'><span>수정</span></a> </td> 
-	                       <form action="DeleteMember.do"><td><a href='DeleteMember.do'><span>삭제</span></a> </td> </form>
+	                        <td><a href='Controller.do'><span>삭제</span></a> </td>
+	                        <!--<form action='Ex03_MemberDelete.jsp?id=${user.id}'><td><a href='DeleteMember.do'><span>삭제</span></a> </td> </form>-->
 	                    </tr>
 	                 </c:if> 
 	            </c:forEach>
