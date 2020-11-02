@@ -28,22 +28,18 @@ td {
 		style="width: 900px; height: 500px; margin-left: auto; margin-right: auto;">
 		<tr>
 			<td colspan="2">
-				<jsp:include page="./common/Top.jsp"></jsp:include>
+				<jsp:include page="../common/Top.jsp"></jsp:include>
 			</td>
 		</tr>
 		<tr>
 			<td style="width: 700px">
-				<% 
-					String userId = request.getRequestURI();
-				%>
-				<h1>Error 404</h1>
-				<h2>요청하신 페이지를 찾을 수 없습니다.</h2>
-				<h4>요청하신 주소: <%=request.getRequestURL() %></h4>
+				<h1>Error 500</h1>
+				<h2>서버에 오류가 있습니다. 잠시후 다시 시도해보십시오.</h2>
 				<h4><a href="Main.do">메인으로 돌아가기</a></h4>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2"><jsp:include page="./common/Bottom.jsp"></jsp:include></td>
+			<td colspan="2"><jsp:include page="../common/Bottom.jsp"></jsp:include></td>
 		</tr>
 	</table>
 </body>
