@@ -16,7 +16,7 @@ import kr.or.bit.service.*;
 @WebServlet("*.do")
 public class FrontMemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
     public FrontMemberController() {
         super();
     }

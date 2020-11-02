@@ -3,6 +3,7 @@
 	<display-name>WebJSP_JDBC</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	<context-param>
 		<description>관리자 이메일 주소 관리</description>
