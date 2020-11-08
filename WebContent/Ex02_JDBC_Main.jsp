@@ -44,7 +44,7 @@ td {
 					<c:when test="${ userid != null }">
 						<b>${ userid } 회원님 방가방가^^</b><br>
 						<c:if test="${ userid == 'admin' }">
-							<a href='MemberList'>회원관리</a>
+							<a href='Controller.do'>회원관리</a>
 						</c:if>
 					</c:when>
 					<c:otherwise>

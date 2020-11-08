@@ -53,4 +53,5 @@ public class MemberList extends HttpServlet {
 		response.sendRedirect("Main");
 	}
 
+
 }

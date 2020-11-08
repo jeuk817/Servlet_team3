@@ -26,8 +26,9 @@ public class DeleteMember extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         response.setContentType("text/plain");
+//        response.sendRedirect("/WebJSP_JDBC_3team/DeleteMember.do");
         
-        RequestDispatcher rd = request.getRequestDispatcher("Ex03_Memberlist.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/Ex03_Memberlist.jsp");
         rd.forward(request, response);
     }
 }

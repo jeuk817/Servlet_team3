@@ -77,10 +77,9 @@ td {
 				int rowcount=0;
 				if(rs.next()){
 					rowcount = rs.getInt(1); //조회건수
-				}
 			 %>
 			 <%
-			 	List
+				}
 			 %>
 			 
 				<table style="width: 400px;height: 100px;margin-left: auto;margin-right: auto">
